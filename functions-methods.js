@@ -1,3 +1,5 @@
+
+
 // Je gaat functies schrijven die we kunnen hergebruiken om sommige emailadressen te checken. Nu zul je gaan merken hoe handig functies kunnen zijn!
 // Je zult hier methoden van het String Object voor nodig hebben, dus pak de paragraaf op EdHub over het String Object er even bij.
 
@@ -8,7 +10,25 @@
 // getEmailDomain("n.eeken@novi-education.nl") geeft novi-education.nl
 // getEmailDomain("t.mellink@novi.nl") geeft novi.nl
 // getEmailDomain("a.wiersma@outlook.com") geeft outlook.com
+function getEmailDomain(email) {
 
+    const emailAdress = email.substring(email.indexOf('@') + 1, email.length);
+    console.log("This is your e-mail adress: " + emailAdress);
+
+    switch (emailAdress){
+        case 'novi-education.nl':
+            console.log("Type of e mail: Student.");
+            break;
+        case 'novi.nl':
+            console.log("Type of e mail: Medewerker.");
+            break;
+        default:
+            console.log("Type of e mail: Extern.");
+    }
+
+}
+
+getEmailDomain("n.eeken@novi-education.nl")
 
 
 
@@ -19,8 +39,22 @@
 // typeOfEmail("t.mellink@novi.nl") geeft geeft "Medewerker"
 // typeOfEmail("novi.nlaapjesk@outlook.com") geeft geeft "Extern" <-- deze moet het ook doen!
 // typeOfEmail("a.wiersma@outlook.com") geeft "Extern"
+function typeOfEmail (email) {
 
+    const emailAdress = email.substring(email.indexOf('@') + 1, email.length);
 
+    switch (emailAdress){
+        case 'novi-education.nl':
+            console.log("Type of e mail: Student.");
+            break;
+        case 'novi.nl':
+            console.log("Type of e mail: Medewerker.");
+            break;
+        default:
+            console.log("Type of e mail: Extern.");
+    }
+}
+typeOfEmail("n.eeken@gmail.com");
 
 /* Opdracht  3 */
 // Schrijf een functie genaamd checkEmailValidity, die een emailadres verwacht en checkt of het emailadres valide is. De functie returned true of false, afhankelijk van de uitkomst.
