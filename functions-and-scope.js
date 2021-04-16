@@ -5,14 +5,71 @@
 // Tip: je mag hier geen ingebouwde object methoden gebruiken, dus daar hoef je niet naar te kijken.
 
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
-let cumL = [];
+const cumLau = [];
 /* Opdracht  1: Cum Laude */
+console.log(" ");
+
+function cumLaude (cumL=[]) {
+    for (let i = 0; i < cumL.length; i++) {
+        if (cumL[i] >= 8) {
+            console.log("Het index nummer is: " + i + " en het cijfer is: " + cumL[i])
+        }
+    }
+}
+
+const filtered = grades.filter(function (value){
+    return value >= 8;
+})
+
+cumLaude(grades);
+console.log("");
+console.log("Filtered methode: " + filtered.length);
+
+let j = 0;
+const array = [];
+
 for (let i = 0; i < grades.length; i++) {
     if (grades[i] >= 8) {
-        grades[i] = cumL[i];
+        array[j] = grades[i];
+        j++;
     }
-    console.log(cumL[i])
 }
+console.log("For loop met nieuwe index j: " + array.length)
+
+const arrayTwo = [];
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        arrayTwo.push(grades[i])
+    }
+}
+console.log("For loop met push methode: " + arrayTwo.length)
+
+let count = 0;
+for (let i = 0; i < grades.length; i++) {
+    if (grades[i] >= 8) {
+        count++;
+    }
+}
+console.log("For loop met count: " + count)
+
+function getCumLaudeOne (arr){
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] >= 8) {
+            count++;
+        }
+    }
+    console.log("Functie met count: " + count)
+}
+getCumLaudeOne(grades)
+
+function getCumLaudeTwo (arr) {
+    const filtered = arr.filter(function (value){
+        return value >= 8;
+    })
+    console.log("Functie met filtered: " + filtered.length)
+}
+getCumLaudeTwo(grades)
 
 /* 1a: Script schrijven  */
 // De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
@@ -21,6 +78,16 @@ for (let i = 0; i < grades.length; i++) {
 // * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
 // * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
 // Log het antwoord in de terminal.
+
+
+
+
+
+
+
+
+
+
 
 // ---- Verwachte uitkomst: 6
 
@@ -49,7 +116,24 @@ for (let i = 0; i < grades.length; i++) {
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 6.642857142857143
+let total = 0;
+for (let i = 0; i < grades.length; i++) {
+    total = total + grades[i];
+}
+let sum = total / grades.length;
+console.log(total);
+console.log(sum)
 
+function sumArray (arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total = total + arr[i];
+    }
+    let sum = total / grades.length;
+    console.log("Het gemiddelde is: " + sum.toFixed(2))
+}
+
+sumArray(grades)
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -79,14 +163,30 @@ for (let i = 0; i < grades.length; i++) {
 // Log het antwoord in de terminal.
 
 // ---- Verwachte uitkomst: 9
+let highest = 0;
 
-
+for (let i = 0; i < grades.length; i++) {
+    if (highest < grades[i]) {
+        console.log("index: " + i)
+        highest = grades[i];
+    }
+}
+console.log(highest)
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
 // Log het antwoord in de terminal.
-
+function highestGrade (arr) {
+    let highest = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (highest < arr[i]) {
+            highest = arr[i];
+        }
+    }
+    console.log("Het hoogste nummer is: " + highest);
+}
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
 // highestGrade([6, 4, 5]) geeft 6
 // highestGrade([8, 9, 4, 6, 10]) geeft 10
+highestGrade(grades)
