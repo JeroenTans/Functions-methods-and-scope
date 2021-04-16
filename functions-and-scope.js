@@ -7,6 +7,13 @@
 const grades = [9, 8, 5, 7, 7, 4, 9, 8, 8, 3, 6, 8, 5, 6];
 const cumLau = [];
 /* Opdracht  1: Cum Laude */
+/* 1a: Script schrijven  */
+// De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
+// Schrijf de stapjes om dit te kunnen checken eerst uit en vraag jezelf de volgende dingen af:
+// * Hoe kan ik iedere waarde van de array checken op deze conditie?
+// * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
+// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
+// Log het antwoord in de terminal.
 console.log(" ");
 
 function cumLaude (cumL=[]) {
@@ -51,7 +58,18 @@ for (let i = 0; i < grades.length; i++) {
     }
 }
 console.log("For loop met count: " + count)
+// ---- Verwachte uitkomst: 6
 
+
+/*  1b: Omschrijven tot een herbruikbare functie   */
+// Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
+// Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
+// Log het antwoord in de terminal.
+
+// ---- Verwachte uitkomsten:
+// cumLaude(grades) geeft 6
+// cumLaude([6, 4, 5]) geeft 0
+// cumLaude([8, 9, 4, 6, 10]) geeft 3
 function getCumLaudeOne (arr){
     let count = 0;
     for (let i = 0; i < arr.length; i++) {
@@ -71,40 +89,6 @@ function getCumLaudeTwo (arr) {
 }
 getCumLaudeTwo(grades)
 
-/* 1a: Script schrijven  */
-// De administratie moet weten hoeveel studenten er dit blok cum laude zijn afgestudeerd (8 of hoger). Daar moeten namelijk speciale diploma's voor besteld worden.
-// Schrijf de stapjes om dit te kunnen checken eerst uit en vraag jezelf de volgende dingen af:
-// * Hoe kan ik iedere waarde van de array checken op deze conditie?
-// * Hoe zorg ik ervoor dat dit ook werkt wanneer de array 100 entries bevat?
-// * Hoe zorgt ik ervoor dat wanneer ik een cijfer tegenkom die aan de conditie voldoet, ik dit ergens kan bijhouden?
-// Log het antwoord in de terminal.
-
-
-
-
-
-
-
-
-
-
-
-// ---- Verwachte uitkomst: 6
-
-
-/*  1b: Omschrijven tot een herbruikbare functie   */
-// Schrijf een functie genaamd cumLaude, die een array van cijfers verwacht (zoals grades) en het aantal Cum laude studenten teruggeeft. Gebruik hiervoor jouw antwoord van 1a.
-// Zorg ervoor dat jouw functie ook werkt als we een andere array met eindcijfers willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
-// Log het antwoord in de terminal.
-
-// ---- Verwachte uitkomsten:
-// cumLaude(grades) geeft 6
-// cumLaude([6, 4, 5]) geeft 0
-// cumLaude([8, 9, 4, 6, 10]) geeft 3
-
-
-
-
 /* Opdracht  2: Gemiddeld cijfer */
 
 /* 2a: Script schrijven  */
@@ -121,19 +105,8 @@ for (let i = 0; i < grades.length; i++) {
     total = total + grades[i];
 }
 let sum = total / grades.length;
-console.log(total);
-console.log(sum)
-
-function sumArray (arr) {
-    let total = 0;
-    for (let i = 0; i < arr.length; i++) {
-        total = total + arr[i];
-    }
-    let sum = total / grades.length;
-    console.log("Het gemiddelde is: " + sum.toFixed(2))
-}
-
-sumArray(grades)
+console.log("Totaal: " + total);
+console.log("Gemiddelde: " + sum)
 
 /* 2b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd averageGrade, die een array van cijfers verwacht (zoals grades) en het gemiddelde cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 2a.
@@ -149,9 +122,16 @@ sumArray(grades)
 /* 2c: Afronden op twee decimalen */
 // Zorg ervoor dat het gemiddelde cijfer dat wordt teruggegeven uit de functie netjes wordt afgerond op twee decimalen.
 // Tip: Google is your best friend!
+function sumArray (arr) {
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+        total = total + arr[i];
+    }
+    let sum = total / grades.length;
+    console.log("Het gemiddelde afgerond op twee decimalen: " + sum.toFixed(2))
+}
 
-
-
+sumArray(grades)
 
 /* Bonusopdracht: hoogste cijfer */
 
@@ -167,11 +147,10 @@ let highest = 0;
 
 for (let i = 0; i < grades.length; i++) {
     if (highest < grades[i]) {
-        console.log("index: " + i)
         highest = grades[i];
     }
 }
-console.log(highest)
+console.log("Het hoogst behaalde cijfer is: " + highest)
 /* 3b: Omschrijven tot een herbruikbare functie */
 // Schrijf een functie genaamd highestGrade, die een array van cijfers verwacht (zoals grades) en het hoogste cijfer teruggeeft. Gebruik hiervoor jouw antwoord van 3a.
 // Zorg ervoor dat jouw functie ook werkt als we een andere array willen checken, zoals bijvoorbeeld: [6, 4, 5] of [8, 9, 4, 6, 10].
@@ -183,7 +162,7 @@ function highestGrade (arr) {
             highest = arr[i];
         }
     }
-    console.log("Het hoogste nummer is: " + highest);
+    console.log("Het hoogst behaalde cijfer is: " + highest);
 }
 // ---- Verwachte uitkomsten:
 // highestGrade(grades) geeft 9
